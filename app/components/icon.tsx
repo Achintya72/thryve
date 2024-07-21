@@ -1,4 +1,15 @@
-type IconName = "filled-calendar" | "filled-checkmark" | "filled-flame" | "filled-flash" | "filled-barbell";
+type IconName = 
+"filled-calendar" | 
+"filled-checkmark" | 
+"filled-flame" | 
+"filled-flash" | 
+"filled-barbell" | 
+"filled-leaf" |
+"filled-home" |
+"filled-settings" |
+"filled-people" |
+"filled-time" |
+"filled-close";
 
 
 interface IconProps extends React.PropsWithChildren{

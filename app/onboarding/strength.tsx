@@ -33,16 +33,16 @@ const options = [
 const Strength = ({ details, changeDetails, changePage }: { details: UserDetails, changeDetails: Dispatch<SetStateAction<UserDetails>>, changePage: Dispatch<SetStateAction<number>> }) => {
     const [selected, changeSelected] = useState<number>(details?.strength ?? 1);
     const [loading, setLoading] = useState(false);
-    const { updateUser } = useContext(DataContext);
+    const { completeOnboarding } = useContext(DataContext);
 
     useEffect(() => {
         changeSelected(details?.strength ?? 1);
     }, [details])
 
     const updateDB = async () => {
-        if (updateUser) {
+        if (completeOnboarding) {
             setLoading(true);
-            await updateUser(details);
+            await completeOnboarding(details);
             setLoading(false);
         }
     }

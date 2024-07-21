@@ -11,7 +11,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string,
     variant?: "primary" | "secondary" | "text",
     size?: "small" | "medium" | "large",
-    onClick?: () => void | null
+    onClick?: () => void | null | Promise<void>
 }
 
 const sizes = {

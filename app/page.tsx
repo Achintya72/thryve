@@ -19,7 +19,7 @@ export default function Home() {
         <p className="font-inter text-gray-700 mt-[10px]">An app made to cultivate your long term fitness</p>
       </div>
       <div className="flex flex-col gap-[10px] items-stretch">
-        <Button  variant="secondary">Create Account</Button>
+        <Button onClick={() => router.replace("/signUp")} variant="secondary">Create Account</Button>
         <Button onClick={() => router.replace("/signIn")}>Sign In</Button>
       </div>
     </main>

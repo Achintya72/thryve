@@ -67,7 +67,7 @@ export default function SignUp() {
                                 let chars = Array.from(value);
                                 if (!chars.some(char => /[A-Z]/.test(char))) return "Password must have at least one uppercase letter";
                                 if (!chars.some(char => /[a-z]/.test(char))) return "Password must have at least one lowercase letter";
-                                if (!chars.some(char => /[1-9]/.test(char))) return "Password must have atleast one numerical digit";
+                                if (!chars.some(char => /[0-9]/.test(char))) return "Password must have atleast one numerical digit";
                                 if (!chars.some(char => /[!@#$%^&*(),.?":{}|<>]/.test(char))) return "Password must have atleast one of [!@#$%^&*(),.?\":{}|<>]";
                             }
                         }}
