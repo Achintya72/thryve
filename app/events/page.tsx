@@ -17,7 +17,7 @@ const Events = () => {
             <h1 className="font-inter font-extrabold text-4xl">Social</h1>
             <div>
                 <h2 className="font-inter font-bold text-[18px]">Leaderboard</h2>
-                {allUsers.filter((v) => (user?.friends && user.friends.includes(v.name!)) || v.name == user?.name).sort((a, b) => b.points! - a.points!).map((e, ind) =>
+                {allUsers.map((e, ind) =>
                     <div className="flex flex-row gap-[10px] px-[20px] py-[10px] my-1 items-center rounded-[10px] border border-blue-100">
                         <div className="font-bold text-2xl">#{ind + 1}</div>
                         <div className="flex flex-1 items-center justify-betweens">
@@ -33,7 +33,7 @@ const Events = () => {
             <div className="mb-[100px]">
                 <h2 className="font-inter font-bold text-[18px]">Events</h2>
                 <div className="">
-                    {allEvents.map((e) => <EventCard event={e} />)}
+                    {allEvents.map((e) => <EventCard desc event={e} />)}
                 </div>
             </div>
             <Navbar />

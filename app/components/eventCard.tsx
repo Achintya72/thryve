@@ -7,11 +7,11 @@ import Button from "./button";
 import { useContext } from "react";
 import DataContext from "../lib/repository/store";
 
-const EventCard = ({ event }: { event: ThryveEvent }) => {
+const EventCard = ({ event, desc = true }: { event: ThryveEvent, desc: boolean }) => {
     const {user, handleEvent} = useContext(DataContext);
 
     return (
-        <div className="rounded-[10px] border m-2 overflow-hidden">
+        <div className="rounded-[10px] min-w-[250px] border m-2 overflow-hidden">
             <div className="relative w-full *:object-cover overflow-hidden" style={{ aspectRatio: "16/9"}}>
                 <Image src={event.image} alt={event.name} fill />
             </div>
@@ -24,7 +24,7 @@ const EventCard = ({ event }: { event: ThryveEvent }) => {
                     <div className="text-[14px] text-[#636363]">{event.location}</div>
                     <div className="text-[14px] text-[#636363]">{event.time.toDate().toDateString()}</div>
                 </div>
-                {event.description}
+                {desc && event.description}
                 {user != null && user.events != null && <Button onClick={() => handleEvent(event.uid)}>{user.events.includes(event.uid) ? "Leave Event" : "Join Event"}</Button>}
             </div>
         </div>

@@ -9,12 +9,13 @@ import Navbar from "../components/navbar";
 import Image from "next/image";
 import Button from "../components/button";
 import { useRouter } from "next/navigation";
+import EventCard from "../components/eventCard";
 
 type Day = "sunday" | "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday";
 const days: Day[] = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
 const Dashboard = () => {
-    const { user } = useContext(DataContext);
+    const { user, allEvents } = useContext(DataContext);
     const router = useRouter();
     const dailyCal = user ? calculateCalorieGoals(user) : 1000;
     const today = new Date();
@@ -82,6 +83,12 @@ const Dashboard = () => {
                     </div>
                 </div>
             <Button size="large" variant="secondary" onClick={() => router.push("/log")}>Log Exercise</Button>
+            <p className="font-inter font-bold">Activities</p>
+            <div className="flex gap-[10px] items-stretch overflow-x-scroll">
+                {allEvents.filter(event => user?.events?.includes(event.uid)).map(event => (
+                    <EventCard desc={false} event={event} key={event.uid} />
+                ))}
+            </div>
             </div>
             <Navbar />
         </main>
